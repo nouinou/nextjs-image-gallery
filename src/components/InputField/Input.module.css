@@ -1,0 +1,12 @@
+.label {
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.input {
+  padding: 10px 14px;
+  border: 1px solid #bbb;
+  border-radius: 7px;
+}
