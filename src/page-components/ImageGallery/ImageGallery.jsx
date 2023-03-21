@@ -4,10 +4,11 @@ import ImageContainer from '@/components/ImageContainer/ImageContainer';
 import fetchImages from './fetchImages';
 import styles from './ImageGallery.module.css';
 
-const HIGHT_OF_IMAGE_CONTAINER = 180;
-const WIDTH_OF_IMAGE_CONTAINER = 235;
-const MAX_WIDTH_OF_MOBILE_CONTAINER = 425;
-const MIN_IMAGE_FETCHING = 10;
+const GRID_GAP = 20;
+const HIGHT_OF_IMAGE_CONTAINER = 180 + GRID_GAP;
+const WIDTH_OF_IMAGE_CONTAINER = 235 + GRID_GAP;
+const MAX_WIDTH_OF_MOBILE_BODY = 425;
+const MIN_PER_PAGE = 10;
 
 export default function ImageGallery() {
   const [page, setPage] = useState(1);
@@ -15,7 +16,7 @@ export default function ImageGallery() {
   const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState(false);
   const shouldFetch = useRef(true);
-  const perPage = useRef(MIN_IMAGE_FETCHING);
+  const perPage = useRef(MIN_PER_PAGE);
 
   // calculate how many image it takes to fill the entire body
   const getImageCount = (bodyHeight, bodyWidth) =>
@@ -24,13 +25,17 @@ export default function ImageGallery() {
   const getNumberOfInitialImages = useCallback(() => {
     const body = document.querySelector('body');
     const bodyRect = body.getBoundingClientRect();
+    const bodyHeight = bodyRect.height;
+    const bodyWidth = bodyRect.width;
+    const container = document.querySelector('.container');
+    const containerWidth = container.getBoundingClientRect().width;
 
-    // if first page on desktop, render images to fill the whole page. Render 10 otherwise
+    // if Mobile, render 10 images per page. Render enough images to fill the whole page otherwise.
     perPage.current =
-      bodyRect.width > MAX_WIDTH_OF_MOBILE_CONTAINER && page === 1
-        ? getImageCount(bodyRect.height, bodyRect.width)
-        : MIN_IMAGE_FETCHING;
-  }, [page]);
+      bodyWidth > MAX_WIDTH_OF_MOBILE_BODY
+        ? getImageCount(bodyHeight, containerWidth)
+        : MIN_PER_PAGE;
+  }, []);
 
   useEffect(() => {
     // Finding out how many images shoud be rendered to fill the entire window
