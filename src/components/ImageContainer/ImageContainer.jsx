@@ -53,7 +53,7 @@ export default function ImageContainer({ image }) {
   }, [id, data]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <Image
         className={styles.image}
         src={urls.small}
