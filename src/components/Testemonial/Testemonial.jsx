@@ -1,5 +1,4 @@
-import { UisStar } from '@iconscout/react-unicons-solid';
-import { UilArrowRight, UilArrowLeft } from '@iconscout/react-unicons';
+import { Star, ArrowLeft, ArrowRight } from 'react-feather';
 import styles from './Testemonial.module.css';
 
 export default function Testimonial({ data }) {
@@ -8,7 +7,9 @@ export default function Testimonial({ data }) {
   const stars = [];
 
   for (let index = 0; index < starCount; index++) {
-    stars.push(<UisStar className={styles.star} key={index} size="16" color="#FFFFFF" />);
+    stars.push(
+      <Star className={styles.star} key={index} size="16" color="#FFFFFF" fill="#FFFFFF" />,
+    );
   }
 
   return (
@@ -32,11 +33,11 @@ export default function Testimonial({ data }) {
 
               <div className={styles.navigation}>
                 <div className={styles.arrow}>
-                  <UilArrowLeft size="26" color="#FFF" />
+                  <ArrowLeft size="22" color="#FFF" />
                 </div>
 
                 <div className={styles.arrow}>
-                  <UilArrowRight size="26" color="#FFF" />
+                  <ArrowRight size="22" color="#FFF" />
                 </div>
               </div>
             </div>
