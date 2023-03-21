@@ -1,21 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useSession } from 'next-auth/react';
 import { ThumbsUp } from 'react-feather';
 import Image from 'next/image';
 import styles from './ImageContainer.module.css';
 
 export default function ImageContainer({ image }) {
-  const { urls, user, alt_description: alt, id } = image;
+  const { urls, user, id } = image;
   const [liked, setLiked] = useState(false);
   const { data } = useSession();
 
-  const getKey = () => `${data.user.username}Likes`;
+  const getKey = useCallback(() => `${data.user.username}Likes`, [data]);
 
-  const getStoredLikes = () => localStorage.getItem(getKey());
+  const getStoredLikes = useCallback(() => localStorage.getItem(getKey()), [getKey]);
 
-  const saveLikes = (likes) => {
-    localStorage.setItem(getKey(), JSON.stringify(likes));
-  };
+  const saveLikes = useCallback(
+    (likes) => {
+      localStorage.setItem(getKey(), JSON.stringify(likes));
+    },
+    [getKey],
+  );
+
   const getLikeSet = (storedLikes) => new Set(JSON.parse(storedLikes));
 
   const handleLikeClick = (imageId) => {
@@ -50,7 +54,7 @@ export default function ImageContainer({ image }) {
         }
       }
     }
-  }, [id, data]);
+  }, [id, data, getStoredLikes, saveLikes]);
 
   return (
     <div className={styles.container}>
@@ -59,7 +63,7 @@ export default function ImageContainer({ image }) {
         src={urls.small}
         width="235"
         height="160"
-        alt={alt || `Photo by ${user.name}`}
+        alt={`Photo by ${user.name}`}
       />
       <div className={styles.footer}>
         <span className={styles.firstname}>{user.first_name}</span>

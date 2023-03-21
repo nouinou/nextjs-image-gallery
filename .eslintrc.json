@@ -6,7 +6,10 @@
     "react/jsx-props-no-spreading": "off",
     "import/no-extraneous-dependencies": "off",
     "array-callback-return": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "object-curly-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "operator-linebreak": "off"
   },
   "plugins": ["import"],
   "settings": {
