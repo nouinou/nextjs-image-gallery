@@ -28,4 +28,8 @@
     width: 235px;
     height: 160px;
   }
+
+  .footer {
+    margin: 5px;
+  }
 }
