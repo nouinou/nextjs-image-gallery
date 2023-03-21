@@ -8,7 +8,7 @@ export default function Testimonial({ data }) {
   const stars = [];
 
   for (let index = 0; index < starCount; index++) {
-    stars.push(<UisStar className={styles.star} key={index} size="16" color="#FFF" />);
+    stars.push(<UisStar className={styles.star} key={index} size="16" color="#FFFFFF" />);
   }
 
   return (

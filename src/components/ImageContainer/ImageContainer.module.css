@@ -1,0 +1,21 @@
+.image {
+  width: 100vw;
+  height: 60vw;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.image:hover {
+  filter: brightness(1.1);
+}
+
+.firstname {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 425px) {
+  .image {
+    width: 235px;
+    height: 160px;
+  }
+}

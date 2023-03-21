@@ -8,6 +8,7 @@ body {
   color: #04050c;
   font-size: 10.5pt;
   font-weight: 100;
+  height: 100vh;
 }
 
 h1,
@@ -16,13 +17,19 @@ h2 {
   font-weight: bold;
 }
 
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 15px;
+}
+
 .capitalized {
   text-transform: capitalize;
 }
 
 button {
-  margin-top: 5px;
   padding: 10px 14px;
+  border: none;
   border-radius: 7px;
 }
 
@@ -33,4 +40,13 @@ button:hover {
 button.primary {
   background: #04050c;
   color: #ffffff;
+}
+
+button:hover {
+  filter: contrast(0.8);
+}
+
+.error-text {
+  color: red;
+  weight: bold
 }
