@@ -57,15 +57,17 @@ run `cp .env.sample .env.local` to create a local environment file named .env.lo
 
 To run the project locally, follow the steps below:
 
+- Clone this repository by running `git clone https://github.com/nouinou/nextjs-image-gallery.git`
+
 #### Development server:
 
-- run `npm install` to install the necessary packages.
-- run `npm run dev` to serve the project.
+- Run `npm install` to install the necessary packages.
+- Run `npm run dev` to serve the project.
 
 Assuming that you have already installed the necessary packages, to serve the project in a production environment, you need to build it first using the npm run build command, and then use npm start to start the server.
 
-- run `npm run build` to build the project.
-- run `npm start` to serve the project.
+- Run `npm run build` to build the project.
+- Run `npm start` to serve the project.
 
 #### Production
 
