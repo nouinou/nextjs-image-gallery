@@ -1,5 +1,6 @@
-import { Level } from 'level';
 import users from '@/__data__/users';
+
+const { Level } = require('level');
 
 const connectToDatabase = async () => {
   const options = { valueEncoding: 'json' };

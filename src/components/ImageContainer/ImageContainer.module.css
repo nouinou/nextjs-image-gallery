@@ -13,6 +13,15 @@
   font-weight: bold;
 }
 
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.like {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 425px) {
   .image {
     width: 235px;

@@ -15,7 +15,7 @@ export default function ImageGallery() {
   const [hasMore, setHasMore] = useState(true);
   const [error, setError] = useState(false);
   const shouldFetch = useRef(true);
-  let perPage = 10;
+  let perPage = MIN_IMAGE_FETCHING;
 
   // calculate how many image it takes to fill the entire body
   const getImageCount = (bodyHeight, bodyWidth) =>

@@ -4,7 +4,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import connectToDatabase from '@/database/level';
 import userStatus from '@/enums/user-status';
 
-export default NextAuth({
+export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
@@ -56,4 +56,5 @@ export default NextAuth({
       return token;
     },
   },
-});
+};
+export default NextAuth(authOptions);
