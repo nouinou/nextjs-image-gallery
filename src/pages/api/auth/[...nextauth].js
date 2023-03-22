@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import connectToDatabase from '@/database/level';
