@@ -1,0 +1,20 @@
+.container {
+  width: 100%;
+  max-width: 350px;
+  margin: 0 15px;
+}
+
+.sub {
+  margin: 0 0 30px 0;
+}
+
+.form {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+
+.error {
+  position: absolute;
+  color: red;
+}

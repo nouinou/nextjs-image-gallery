@@ -30,3 +30,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Editor generated files
+/.idea/
+
+# Database generated files
+/database
