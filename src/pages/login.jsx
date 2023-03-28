@@ -6,7 +6,7 @@ import Testimonial from '@/components/Testemonial/Testemonial';
 export default function Login() {
   const testimonial = {
     name: 'Andi Lane',
-    text: `We're been using NestJs Image Gallery 
+    text: `We've been using NestJs Image Gallery 
           to kick start every new project 
           and can't imagine working without it`,
     position: 'Founder, Catalog',
